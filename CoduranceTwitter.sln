@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoduranceTwitter", "CoduranceTwitter\CoduranceTwitter.csproj", "{026013AF-3B6C-4D84-8F33-3BA1BCAE2175}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoduranceTwitter.Tests", "CoduranceTwitter.Tests\CoduranceTwitter.Tests.csproj", "{1E32CB4B-4B8A-4721-B401-1CD54EAEDF55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{026013AF-3B6C-4D84-8F33-3BA1BCAE2175}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{026013AF-3B6C-4D84-8F33-3BA1BCAE2175}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{026013AF-3B6C-4D84-8F33-3BA1BCAE2175}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{026013AF-3B6C-4D84-8F33-3BA1BCAE2175}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E32CB4B-4B8A-4721-B401-1CD54EAEDF55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E32CB4B-4B8A-4721-B401-1CD54EAEDF55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E32CB4B-4B8A-4721-B401-1CD54EAEDF55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E32CB4B-4B8A-4721-B401-1CD54EAEDF55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
