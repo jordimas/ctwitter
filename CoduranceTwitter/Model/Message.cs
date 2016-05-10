@@ -15,7 +15,19 @@ namespace CoduranceTwitter.Model
 
         public void PostMessage(string username, string text)
         {
-            _repository.CreateMessage(username, text);
+            PostMessage(username, text, DateTime.Now);
+        }
+
+        public void PostMessage(string username, string text, DateTime datetime)
+        {
+            MessageDto messageDto = new MessageDto()
+            {
+                Username = username,
+                Text = text,
+                Timespan = datetime
+            };
+
+            _repository.CreateMessage(messageDto);
         }
         
         public List<MessageDto> Read(string username)

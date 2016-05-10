@@ -19,15 +19,9 @@ namespace CoduranceTwitter.DAL
         private List<MessageDto> _messages = new List<MessageDto>();
         private List<SubscriptionData> _subscriptions = new List<SubscriptionData>();
 
-        public MessageDto CreateMessage(string username, string text)
-        {
-            var messageDto = new MessageDto()
-            {
-                Timespan = DateTime.Now,
-                Id = _last_message_id,
-                Text = text,
-                Username = username
-            };
+        public MessageDto CreateMessage(MessageDto messageDto)
+        { 
+            messageDto.Id = _last_message_id;
             _messages.Add(messageDto);
             _last_message_id++;
             return messageDto;
@@ -35,8 +29,7 @@ namespace CoduranceTwitter.DAL
 
         public List<MessageDto> GetMessages(string username)
         {
-            _messages.FindAll(x => x.Username == username);
-            return _messages;
+            return _messages.FindAll(x => x.Username == username);
         }
 
         public int? GetUser(string username)
@@ -83,5 +76,6 @@ namespace CoduranceTwitter.DAL
 
             return subscriptions;
         }
+            
     }
 }
