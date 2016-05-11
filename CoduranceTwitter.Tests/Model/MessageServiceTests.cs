@@ -9,6 +9,7 @@ namespace CoduranceTwitter.Tests.Model
     [TestClass]
     public class MessageTest
     {
+        // todo: expectation
         [TestMethod]
         public void PostMessage_OneMessage()
         {
@@ -16,7 +17,7 @@ namespace CoduranceTwitter.Tests.Model
             string TEST_TEXT = "test-text";
 
             IRepository repository = new MemoryRepository();
-            Message message = new Message(repository);
+            MessageService message = new MessageService(repository);
             message.PostMessage(TEST_USER, TEST_TEXT);
 
             var messages = message.Read(TEST_USER);
@@ -34,7 +35,7 @@ namespace CoduranceTwitter.Tests.Model
             string TEST_TEXT2 = "test-text2";
 
             IRepository repository = new MemoryRepository();
-            Message message = new Message(repository);
+            MessageService message = new MessageService(repository);
             message.PostMessage(TEST_USER1, TEST_TEXT1);
             message.PostMessage(TEST_USER2, TEST_TEXT2);
 
@@ -51,7 +52,7 @@ namespace CoduranceTwitter.Tests.Model
             string TEST_TEXT2 = "test-text2";
 
             IRepository repository = new MemoryRepository();
-            Message message = new Message(repository);
+            MessageService message = new MessageService(repository);
             DateTime now = DateTime.Now;
             message.PostMessage(TEST_USER, TEST_TEXT1, now);
             message.PostMessage(TEST_USER, TEST_TEXT2, now.AddMinutes(1));
@@ -68,7 +69,7 @@ namespace CoduranceTwitter.Tests.Model
             string TEST_USER = "test-user";
            
             IRepository repository = new MemoryRepository();
-            Message message = new Message(repository);
+            MessageService message = new MessageService(repository);
            
             var messages = message.Read(TEST_USER);
             Assert.AreEqual(messages.Count, 0);

@@ -12,7 +12,7 @@ namespace CoduranceTwitter.Tests
         {
             string TEST_USER = "test-user";
             IRepository  repository = new MemoryRepository();
-            User user = new User(repository);
+            UserService user = new UserService(repository);
             var userDto = user.GetOrCreateUser(TEST_USER);
 
             Assert.AreEqual(userDto.Username, TEST_USER);
@@ -25,7 +25,7 @@ namespace CoduranceTwitter.Tests
             IRepository repository = new MemoryRepository();
             int id = repository.CreateUser(TEST_USER); 
 
-            User user = new User(repository);
+            UserService user = new UserService(repository);
             var userDto = user.GetOrCreateUser(TEST_USER);
 
             Assert.AreEqual(userDto.Username, TEST_USER);

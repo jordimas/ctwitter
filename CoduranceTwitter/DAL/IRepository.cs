@@ -6,8 +6,8 @@ namespace CoduranceTwitter.DAL
     // TODO: Unit of work
     public interface IRepository
     {
-        MessageDto CreateMessage (MessageDto messageDto);
-        List <MessageDto> GetMessages(string user);
+        Message CreateMessage (Message messageDto);
+        List <Message> GetMessages(string user);
 
         int? GetUser(string username);
         int CreateUser(string username);

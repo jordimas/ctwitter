@@ -1,6 +1,6 @@
 ﻿namespace CoduranceTwitter.Model
 {
-    public class SubscriptionDto
+    public class Subscription
     {
         public string User { get; set; }
         public string FollowUser { get; set; }

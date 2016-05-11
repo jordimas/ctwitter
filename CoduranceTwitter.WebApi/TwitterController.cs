@@ -9,9 +9,9 @@ namespace CoduranceTwitter.WebApi
         private static readonly IRepository _repository = new MemoryRepository();
 
         [HttpGet]
-        public MessageDto[] ReadMessage(string username)
+        public Message[] ReadMessage(string username)
         {
-            Message message = new Message(_repository);
+            MessageService message = new MessageService(_repository);
             var messages = message.Read(username);
             return messages.ToArray();
         }
@@ -25,7 +25,7 @@ namespace CoduranceTwitter.WebApi
         }
 
         [HttpGet]
-        public MessageDto[] WallRead(string username)
+        public Message[] WallRead(string username)
         {
             Wall wall = new Wall(_repository);
             var messages = wall.Read(username);
@@ -35,7 +35,7 @@ namespace CoduranceTwitter.WebApi
         [HttpGet]
         public string SendMessage(string username, string data)
         {
-            Message message = new Message(_repository);
+            MessageService message = new MessageService(_repository);
             message.PostMessage(username, data);
             return $"SendMessage {username} {data}";
         }

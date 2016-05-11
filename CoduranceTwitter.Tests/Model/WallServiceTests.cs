@@ -33,7 +33,7 @@ namespace CoduranceTwitter.Tests
             repository.CreateUser(TEST_USER);
             
 
-            MessageDto messageDto = new MessageDto()
+            Message messageDto = new Message()
             {
                 Username = TEST_USER,
                 Text = TEST_MESSAGE,
@@ -59,14 +59,14 @@ namespace CoduranceTwitter.Tests
             repository.CreateUser(TEST_USER);
             repository.CreateUser(TEST_USER_FOLLOW);
 
-            MessageDto messageDto1 = new MessageDto()
+            Message messageDto1 = new Message()
             {
                 Username = TEST_USER,
                 Text = TEST_MESSAGE,
                 Timespan = DateTime.Now
             };
 
-            MessageDto messageDto2 = new MessageDto()
+            Message messageDto2 = new Message()
             {
                 Username = TEST_USER_FOLLOW,
                 Text = TEST_MESSAGE_FOLLOW,

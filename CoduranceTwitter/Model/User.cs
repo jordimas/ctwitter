@@ -2,16 +2,16 @@
 
 namespace CoduranceTwitter.Model
 {
-    public class User
+    public class UserService
     {   
         private IRepository _repository;
 
-        public User(IRepository repository)
+        public UserService(IRepository repository)
         {
             _repository = repository;
         }
 
-        public UserDto GetOrCreateUser(string username)
+        public User GetOrCreateUser(string username)
         {
             int? id = 0;
             id = _repository.GetUser(username);
@@ -21,7 +21,7 @@ namespace CoduranceTwitter.Model
                 id = _repository.CreateUser(username);
             }
 
-            return new UserDto()
+            return new User()
             {
                 Id = id,
                 Username = username

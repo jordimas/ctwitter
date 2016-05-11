@@ -16,10 +16,10 @@ namespace CoduranceTwitter.DAL
         private Dictionary<string, int> _users = new Dictionary<string, int>();
         private int _last_user_id = 0;
         private int _last_message_id = 0;
-        private List<MessageDto> _messages = new List<MessageDto>();
+        private List<Message> _messages = new List<Message>();
         private List<SubscriptionData> _subscriptions = new List<SubscriptionData>();
 
-        public MessageDto CreateMessage(MessageDto messageDto)
+        public Message CreateMessage(Message messageDto)
         { 
             messageDto.Id = _last_message_id;
             _messages.Add(messageDto);
@@ -27,7 +27,7 @@ namespace CoduranceTwitter.DAL
             return messageDto;
         }
 
-        public List<MessageDto> GetMessages(string username)
+        public List<Message> GetMessages(string username)
         {
             return _messages.FindAll(x => x.Username == username);
         }

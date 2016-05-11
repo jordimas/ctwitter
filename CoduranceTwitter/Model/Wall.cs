@@ -18,7 +18,7 @@ namespace CoduranceTwitter.Model
             _repository.CreateSubscription(user, followUser);
         }
 
-        public List<MessageDto> Read(string username)
+        public List<Message> Read(string username)
         {
             var messages =_repository.GetMessages(username);
             var subscriptions = _repository.GetSubscriptions(username);
