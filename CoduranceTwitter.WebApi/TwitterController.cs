@@ -25,7 +25,7 @@ namespace CoduranceTwitter.WebApi
         }
 
         [HttpGet]
-        public MessageDto[] WallRead(string username, string data)
+        public MessageDto[] WallRead(string username)
         {
             Wall wall = new Wall(_repository);
             var messages = wall.Read(username);
