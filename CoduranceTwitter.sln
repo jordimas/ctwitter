@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoduranceTwitter", "CoduranceTwitter\CoduranceTwitter.csproj", "{026013AF-3B6C-4D84-8F33-3BA1BCAE2175}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoduranceTwitter.Tests", "CoduranceTwitter.Tests\CoduranceTwitter.Tests.csproj", "{1E32CB4B-4B8A-4721-B401-1CD54EAEDF55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoduranceTwitter.WebApi", "CoduranceTwitter.WebApi\CoduranceTwitter.WebApi.csproj", "{D2E9F373-300F-401F-8C3F-C58D57392655}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoduranceTwitter.Client", "CoduranceTwitter.Client\CoduranceTwitter.Client.csproj", "{B3F33344-D1EB-429E-A06B-80C5453B42A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{1E32CB4B-4B8A-4721-B401-1CD54EAEDF55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E32CB4B-4B8A-4721-B401-1CD54EAEDF55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E32CB4B-4B8A-4721-B401-1CD54EAEDF55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2E9F373-300F-401F-8C3F-C58D57392655}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2E9F373-300F-401F-8C3F-C58D57392655}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2E9F373-300F-401F-8C3F-C58D57392655}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2E9F373-300F-401F-8C3F-C58D57392655}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3F33344-D1EB-429E-A06B-80C5453B42A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3F33344-D1EB-429E-A06B-80C5453B42A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3F33344-D1EB-429E-A06B-80C5453B42A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3F33344-D1EB-429E-A06B-80C5453B42A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
