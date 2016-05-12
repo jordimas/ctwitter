@@ -4,6 +4,14 @@ namespace CoduranceTwitter.Client
 {
     class Program
     {
+        static void ShowMessages(Message[] messages)
+        {
+            foreach (var message in messages)
+            {
+                Console.WriteLine($"{message.Username.Username} - {message.Text} - {message.Timespan}");
+            }
+        }
+
         static void Main(string[] args)
         {
             var commandLine = new CommandLine(args);
@@ -23,10 +31,7 @@ namespace CoduranceTwitter.Client
                 case "reading":
                 {
                     var messages = restApiClient.ReadMessage(username);
-                    foreach (var message in messages)
-                    {
-                        Console.WriteLine($"{message.Text} - {message.Timespan}");
-                    }
+                    ShowMessages(messages);
                     break;
                 }
 
@@ -49,10 +54,7 @@ namespace CoduranceTwitter.Client
                 case "wall":
                 {
                     var messages = restApiClient.WallRead(username);
-                    foreach (var message in messages)
-                    {
-                        Console.WriteLine($"{message.Text} - {message.Timespan}");
-                    }
+                    ShowMessages(messages);
                     break;
                 }
             }
