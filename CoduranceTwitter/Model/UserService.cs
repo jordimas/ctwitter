@@ -4,28 +4,26 @@ namespace CoduranceTwitter.Model
 {
     public class UserService
     {   
-        private IRepository _repository;
+        private IRepository <User> _repository;
 
-        public UserService(IRepository repository)
+        public UserService(IRepository<User> repository)
         {
             _repository = repository;
         }
 
         public User GetOrCreateUser(string username)
         {
-            int? id = 0;
-            id = _repository.GetUser(username);
+            User user;
+            user = _repository.Get(username);
 
-            if (id.HasValue == false)
+            if (user == null)
             {
-                id = _repository.CreateUser(username);
+                user = new User(username);
+                _repository.Add(user);
+                user = _repository.Get(username);
             }
 
-            return new User()
-            {
-                Id = id,
-                Username = username
-            };
+            return user;
         }
     }
 }

@@ -43,13 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\MemoryMessageRepository.cs" />
     <Compile Include="DAL\IRepository.cs" />
+    <Compile Include="DAL\IMessageRepository.cs" />
+    <Compile Include="DAL\MemoryUserRepository.cs" />
+    <Compile Include="DAL\MemoryWallRepository.cs" />
     <Compile Include="DAL\MemoryRepository.cs" />
-    <Compile Include="Model\Subscription.cs" />
     <Compile Include="Model\MessageService.cs" />
     <Compile Include="Model\Message.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Wall.cs" />
+    <Compile Include="Model\WallService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\UserService.cs" />

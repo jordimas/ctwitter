@@ -16,7 +16,7 @@ namespace CoduranceTwitter.Tests.Model
             string TEST_USER = "test-user";
             string TEST_TEXT = "test-text";
 
-            IRepository repository = new MemoryRepository();
+            IRepository<Message> repository = new MemoryMessageRepository();
             MessageService message = new MessageService(repository);
             message.PostMessage(TEST_USER, TEST_TEXT);
 
@@ -34,7 +34,7 @@ namespace CoduranceTwitter.Tests.Model
             string TEST_TEXT1 = "test-text1";
             string TEST_TEXT2 = "test-text2";
 
-            IRepository repository = new MemoryRepository();
+            IRepository<Message> repository = new MemoryMessageRepository();
             MessageService message = new MessageService(repository);
             message.PostMessage(TEST_USER1, TEST_TEXT1);
             message.PostMessage(TEST_USER2, TEST_TEXT2);
@@ -51,7 +51,7 @@ namespace CoduranceTwitter.Tests.Model
             string TEST_TEXT1 = "test-text1";
             string TEST_TEXT2 = "test-text2";
 
-            IRepository repository = new MemoryRepository();
+            IRepository<Message> repository = new MemoryMessageRepository();
             MessageService message = new MessageService(repository);
             DateTime now = DateTime.Now;
             message.PostMessage(TEST_USER, TEST_TEXT1, now);
@@ -67,8 +67,8 @@ namespace CoduranceTwitter.Tests.Model
         public void Read_NoMessage()
         {
             string TEST_USER = "test-user";
-           
-            IRepository repository = new MemoryRepository();
+
+            IRepository<Message> repository = new MemoryMessageRepository();
             MessageService message = new MessageService(repository);
            
             var messages = message.Read(TEST_USER);

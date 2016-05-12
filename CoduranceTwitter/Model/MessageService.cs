@@ -6,9 +6,9 @@ namespace CoduranceTwitter.Model
 {
     public class MessageService
     {
-        private IRepository _repository;
+        private IRepository <Message> _repository;
 
-        public MessageService(IRepository repository)
+        public MessageService(IRepository<Message> repository)
         {
             _repository = repository;
         }
@@ -27,12 +27,12 @@ namespace CoduranceTwitter.Model
                 Timespan = datetime
             };
 
-            _repository.CreateMessage(messageDto);
+            _repository.Add(messageDto);
         }
         
         public List<Message> Read(string username)
         {
-            var messages = _repository.GetMessages(username);
+            var messages = _repository.GetAll(username);
             messages.Sort((x, y) => y.Timespan.CompareTo(x.Timespan));
             return messages;
         }

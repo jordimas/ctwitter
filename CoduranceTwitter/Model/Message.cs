@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace CoduranceTwitter.Model
 {
     public class Message

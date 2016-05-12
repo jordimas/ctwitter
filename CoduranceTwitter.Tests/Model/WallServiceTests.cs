@@ -13,14 +13,17 @@ namespace CoduranceTwitter.Tests
         {
             string TEST_USER = "test-user1";
             string TEST_USERFOLLOW = "test-user2";
-            IRepository repository = new MemoryRepository();
-            Wall wall = new Wall(repository);
+            IRepository<Message> messageRepository = new MemoryMessageRepository();
+            IRepository<Wall> wallRepository = new MemoryWallRepository();
+            IRepository<User> userRepository = new MemoryUserRepository();
 
-            repository.CreateUser(TEST_USER);
-            repository.CreateUser(TEST_USERFOLLOW);
+            WallService wall = new WallService(wallRepository, messageRepository);
+
+            userRepository.Add(new User(TEST_USER));
+            userRepository.Add(new User(TEST_USERFOLLOW));
 
             wall.Subscribe(TEST_USER, TEST_USERFOLLOW);
-            var subscriptions = repository.GetSubscriptions(TEST_USER);
+            var subscriptions = wallRepository.GetAll(TEST_USER);
             Assert.AreEqual(subscriptions.Count, 1);
         }
 
@@ -29,20 +32,21 @@ namespace CoduranceTwitter.Tests
         {
             string TEST_USER = "test-user";
             string TEST_MESSAGE = "test-message";
-            IRepository repository = new MemoryRepository();
-            repository.CreateUser(TEST_USER);
-            
+            IRepository<Message> messageRepository = new MemoryMessageRepository();
+            IRepository<Wall> wallRepository = new MemoryWallRepository();
+            IRepository<User> userRepository = new MemoryUserRepository();
+            WallService wall = new WallService(wallRepository, messageRepository);
 
-            Message messageDto = new Message()
+            userRepository.Add(new User(TEST_USER));
+            
+            Message message= new Message()
             {
                 Username = TEST_USER,
                 Text = TEST_MESSAGE,
                 Timespan = DateTime.Now
             };
 
-            repository.CreateMessage(messageDto);
-
-            Wall wall = new Wall(repository);
+            messageRepository.Add(message);
             var messages = wall.Read(TEST_USER);
             Assert.AreEqual(messages.Count, 1);
             Assert.AreEqual(messages[0].Text, TEST_MESSAGE);
@@ -55,29 +59,37 @@ namespace CoduranceTwitter.Tests
             string TEST_USER_FOLLOW = "test-user-follow";
             string TEST_MESSAGE = "test-message";
             string TEST_MESSAGE_FOLLOW = "test-message-follow";
-            IRepository repository = new MemoryRepository();
-            repository.CreateUser(TEST_USER);
-            repository.CreateUser(TEST_USER_FOLLOW);
+            IRepository<Message> messageRepository = new MemoryMessageRepository();
+            IRepository<Wall> wallRepository = new MemoryWallRepository();
+            IRepository<User> userRepository = new MemoryUserRepository();
+            WallService wall = new WallService(wallRepository, messageRepository);
 
-            Message messageDto1 = new Message()
+            userRepository.Add(new User(TEST_USER));
+            userRepository.Add(new User(TEST_USER_FOLLOW));
+
+            Message message1 = new Message()
             {
                 Username = TEST_USER,
                 Text = TEST_MESSAGE,
                 Timespan = DateTime.Now
             };
 
-            Message messageDto2 = new Message()
+            Message message2 = new Message()
             {
                 Username = TEST_USER_FOLLOW,
                 Text = TEST_MESSAGE_FOLLOW,
                 Timespan = DateTime.Now
             };
 
-            repository.CreateMessage(messageDto1);
-            repository.CreateMessage(messageDto2);
-            repository.CreateSubscription(TEST_USER, TEST_USER_FOLLOW);
+            messageRepository.Add(message1);
+            messageRepository.Add(message2);
+            var subscription = new Wall()
+            {
+                Username = TEST_USER,
+                FollowUser = TEST_USER_FOLLOW
+            };
+            wallRepository.Add(subscription);
 
-            Wall wall = new Wall(repository);
             var messages = wall.Read(TEST_USER);
             Assert.AreEqual(messages.Count, 2);
             Assert.AreEqual(messages[0].Text, TEST_MESSAGE);
