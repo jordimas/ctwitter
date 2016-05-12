@@ -8,30 +8,27 @@ namespace CoduranceTwitter.Tests.Model
     [TestClass]
     public class MessageTest
     {
+        string TEST_USER1 = "test-user1";
+        string TEST_USER2 = "test-user2";
+        string TEST_TEXT1 = "test-text1";
+        string TEST_TEXT2 = "test-text2";
+
         [TestMethod]
         public void PostMessage_OneMessage()
         {
-            string TEST_USER = "test-user";
-            string TEST_TEXT = "test-text";
-
             IRepository<Message> repository = new MemoryMessageRepository();
             MessageService message = new MessageService(repository);
-            message.PostMessage(TEST_USER, TEST_TEXT);
+            message.PostMessage(TEST_USER1, TEST_TEXT1);
 
-            var messages = message.Read(TEST_USER);
+            var messages = message.Read(TEST_USER1);
             Assert.AreEqual(messages.Count, 1);
-            Assert.AreEqual(messages[0].Text, TEST_TEXT);
-            Assert.AreEqual(messages[0].Username, TEST_USER);
+            Assert.AreEqual(messages[0].Text, TEST_TEXT1);
+            Assert.AreEqual(messages[0].Username, TEST_USER1);
         }
 
         [TestMethod]
         public void Read_OnlyForMe()
         {
-            string TEST_USER1 = "test-user1";
-            string TEST_USER2 = "test-user2";
-            string TEST_TEXT1 = "test-text1";
-            string TEST_TEXT2 = "test-text2";
-
             IRepository<Message> repository = new MemoryMessageRepository();
             MessageService message = new MessageService(repository);
             message.PostMessage(TEST_USER1, TEST_TEXT1);
@@ -45,17 +42,13 @@ namespace CoduranceTwitter.Tests.Model
         [TestMethod]
         public void Read_Sorted()
         {
-            string TEST_USER = "test-user";
-            string TEST_TEXT1 = "test-text1";
-            string TEST_TEXT2 = "test-text2";
-
             IRepository<Message> repository = new MemoryMessageRepository();
             MessageService message = new MessageService(repository);
             DateTime now = DateTime.Now;
-            message.PostMessage(TEST_USER, TEST_TEXT1, now);
-            message.PostMessage(TEST_USER, TEST_TEXT2, now.AddMinutes(1));
+            message.PostMessage(TEST_USER1, TEST_TEXT1, now);
+            message.PostMessage(TEST_USER1, TEST_TEXT2, now.AddMinutes(1));
 
-            var messages = message.Read(TEST_USER);
+            var messages = message.Read(TEST_USER1);
             Assert.AreEqual(messages.Count, 2);
             Assert.AreEqual(messages[0].Text, TEST_TEXT2);
             Assert.AreEqual(messages[1].Text, TEST_TEXT1);
@@ -64,12 +57,10 @@ namespace CoduranceTwitter.Tests.Model
         [TestMethod]
         public void Read_NoMessage()
         {
-            string TEST_USER = "test-user";
-
             IRepository<Message> repository = new MemoryMessageRepository();
             MessageService message = new MessageService(repository);
            
-            var messages = message.Read(TEST_USER);
+            var messages = message.Read(TEST_USER1);
             Assert.AreEqual(messages.Count, 0);
         }
     }

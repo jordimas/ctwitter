@@ -7,10 +7,11 @@ namespace CoduranceTwitter.Tests.Model
     [TestClass]
     public class UserTest
     {
+        string TEST_USER = "test-user";
+
         [TestMethod]
         public void GetOrCreateUser_NewUser()
         {
-            string TEST_USER = "test-user";
             IRepository<User> repository = new MemoryUserRepository();
             UserService user = new UserService(repository);
             var userDto = user.GetOrCreateUser(TEST_USER);
@@ -21,7 +22,6 @@ namespace CoduranceTwitter.Tests.Model
         [TestMethod]
         public void GetOrCreateUser_ExistingUser()
         {
-            string TEST_USER = "test-user";
             IRepository<User> repository = new MemoryUserRepository();
             User user = new User(TEST_USER);
             repository.Add(user); 
