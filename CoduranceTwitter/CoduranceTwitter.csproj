@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="DAL\MemoryMessageRepository.cs" />
     <Compile Include="DAL\IRepository.cs" />
-    <Compile Include="DAL\IMessageRepository.cs" />
     <Compile Include="DAL\MemoryUserRepository.cs" />
     <Compile Include="DAL\MemoryWallRepository.cs" />
     <Compile Include="Model\MessageService.cs" />
