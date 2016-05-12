@@ -23,7 +23,7 @@ namespace CoduranceTwitter.Tests.Model
             var messages = message.Read(TEST_USER1);
             Assert.AreEqual(messages.Count, 1);
             Assert.AreEqual(messages[0].Text, TEST_TEXT1);
-            Assert.AreEqual(messages[0].Username, TEST_USER1);
+            Assert.AreEqual(messages[0].Username.Username, TEST_USER1);
         }
 
         [TestMethod]

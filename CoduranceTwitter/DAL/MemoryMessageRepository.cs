@@ -14,12 +14,12 @@ namespace CoduranceTwitter.DAL
 
         public Message Get(string username)
         {
-            return _messages.Find(x => x.Username == username);
+            return _messages.Find(x => x.Username.Username == username);
         }
 
         public List<Message> GetAll(string username)
         {
-            return _messages.FindAll(x => x.Username == username);
+            return _messages.FindAll(x => x.Username.Username == username);
         }
     }
 }

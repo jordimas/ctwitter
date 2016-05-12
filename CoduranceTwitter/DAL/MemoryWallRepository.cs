@@ -14,12 +14,12 @@ namespace CoduranceTwitter.DAL
 
         public Wall Get(string username)
         {
-            return _walls.Find(x => x.Username == username);
+            return _walls.Find(x => x.Username.Username == username);
         }
 
         public List<Wall> GetAll(string username)
         {
-            return _walls.FindAll(x => x.Username == username);
+            return _walls.FindAll(x => x.Username.Username == username);
         }
     }
 }

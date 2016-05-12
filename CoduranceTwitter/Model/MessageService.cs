@@ -22,7 +22,7 @@ namespace CoduranceTwitter.Model
         {
             Message messageDto = new Message()
             {
-                Username = username,
+                Username = new User(username),
                 Text = text,
                 Timespan = datetime
             };

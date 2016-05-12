@@ -18,8 +18,8 @@ namespace CoduranceTwitter.Model
         {
             var wall = new Wall()
             {
-                Username = user,
-                FollowUser = followUser
+                Username = new User(user),
+                FollowUser = new User(followUser)
             };
             _wallRepository.Add(wall);
         }
@@ -31,7 +31,7 @@ namespace CoduranceTwitter.Model
 
             foreach (var user in subscriptions)
             {
-                var subcriptionMessages = _messageRepository.GetAll(user.FollowUser);
+                var subcriptionMessages = _messageRepository.GetAll(user.FollowUser.Username);
                 messages.AddRange(subcriptionMessages);
             }
 

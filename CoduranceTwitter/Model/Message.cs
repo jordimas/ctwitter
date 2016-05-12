@@ -6,6 +6,6 @@ namespace CoduranceTwitter.Model
     {
         public string Text { get; set; }
         public DateTime Timespan { get; set; }
-        public string Username { get; set; }
+        public User Username { get; set; }
     }
 }

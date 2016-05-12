@@ -3,7 +3,7 @@ namespace CoduranceTwitter.Model
 {
     public class Wall
     {
-        public string Username { get; set; }
-        public string FollowUser { get; set; }
+        public User Username { get; set; }
+        public User FollowUser { get; set; }
     }
 }
