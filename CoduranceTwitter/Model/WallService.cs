@@ -34,7 +34,8 @@ namespace CoduranceTwitter.Model
                 var subcriptionMessages = _messageRepository.GetAll(user.FollowUser);
                 messages.AddRange(subcriptionMessages);
             }
-            
+
+            messages.Sort((x, y) => y.Timespan.CompareTo(x.Timespan));
             return messages;
         }
     }

@@ -48,7 +48,7 @@ namespace CoduranceTwitter.Tests.Model
         }
 
         [TestMethod]
-        public void Read_FollowingOne()
+        public void Read_FollowingOneUser()
         {
             IRepository<Message> messageRepository = new MemoryMessageRepository();
             IRepository<Wall> wallRepository = new MemoryWallRepository();
@@ -58,8 +58,9 @@ namespace CoduranceTwitter.Tests.Model
             userRepository.Add(new User(TEST_USER));
             userRepository.Add(new User(TEST_USER_FOLLOW));
 
-            Message message1 = new Message() { Username = TEST_USER,  Text = TEST_MESSAGE, Timespan = DateTime.Now };
-            Message message2 = new Message() { Username = TEST_USER_FOLLOW, Text = TEST_MESSAGE_FOLLOW, Timespan = DateTime.Now};
+            DateTime dt = DateTime.Now;
+            Message message1 = new Message() { Username = TEST_USER, Text = TEST_MESSAGE, Timespan = dt };
+            Message message2 = new Message() { Username = TEST_USER_FOLLOW, Text = TEST_MESSAGE_FOLLOW, Timespan = dt.AddHours(1)};
 
             messageRepository.Add(message1);
             messageRepository.Add(message2);
@@ -68,8 +69,8 @@ namespace CoduranceTwitter.Tests.Model
 
             var messages = wall.Read(TEST_USER);
             Assert.AreEqual(messages.Count, 2);
-            Assert.AreEqual(messages[0].Text, TEST_MESSAGE);
-            Assert.AreEqual(messages[1].Text, TEST_MESSAGE_FOLLOW);
+            Assert.AreEqual(messages[0].Text, TEST_MESSAGE_FOLLOW);
+            Assert.AreEqual(messages[1].Text, TEST_MESSAGE);
         }
     }
 

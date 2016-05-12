@@ -7,14 +7,14 @@ namespace CoduranceTwitter.DAL
     public class MemoryUserRepository : IRepository<User>
     {
         private Dictionary<string, User> _users = new Dictionary<string, User>();
-        private int _last_user_id = 0;
+        private int _lastUserId = 0;
 
         public void Add(User user)
         {
-            int id = _last_user_id;
+            int id = _lastUserId;
             user.Id = id;
             _users[user.Username] = user;
-            _last_user_id++;
+            _lastUserId++;
         }
 
         public User Get(string username)
