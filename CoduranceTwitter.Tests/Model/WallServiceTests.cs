@@ -14,7 +14,7 @@ namespace CoduranceTwitter.Tests.Model
         readonly string TEST_MESSAGE_FOLLOW = "test-message-follow";
 
         [TestMethod]
-        public void Subscribe_OneUser()
+        public void Follow_OneUser()
         {
             IRepository<Message> messageRepository = new MemoryMessageRepository();
             IRepository<Wall> wallRepository = new MemoryWallRepository();
@@ -73,5 +73,4 @@ namespace CoduranceTwitter.Tests.Model
             Assert.AreEqual(messages[1].Text, TEST_MESSAGE);
         }
     }
-
 }
