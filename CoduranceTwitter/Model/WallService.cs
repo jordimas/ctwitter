@@ -5,8 +5,8 @@ namespace CoduranceTwitter.Model
 {
     public class WallService
     {
-        private IRepository<Wall> _wallRepository;
-        private IRepository<Message> _messageRepository;
+        private readonly IRepository<Wall> _wallRepository;
+        private readonly IRepository<Message> _messageRepository;
 
         public WallService(IRepository<Wall> wallRepository, IRepository<Message> messageRepository)
         {

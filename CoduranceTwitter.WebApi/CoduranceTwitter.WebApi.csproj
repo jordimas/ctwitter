@@ -76,10 +76,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TwitterController.cs" />
+    <Compile Include="BaseController.cs" />
+    <Compile Include="MessageController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="WallController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
