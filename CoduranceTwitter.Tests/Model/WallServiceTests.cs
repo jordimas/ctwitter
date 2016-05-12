@@ -18,12 +18,8 @@ namespace CoduranceTwitter.Tests.Model
         {
             IRepository<Message> messageRepository = new MemoryMessageRepository();
             IRepository<Wall> wallRepository = new MemoryWallRepository();
-            IRepository<User> userRepository = new MemoryUserRepository();
-
+        
             WallService wall = new WallService(wallRepository, messageRepository);
-
-            userRepository.Add(new User(TEST_USER));
-            userRepository.Add(new User(TEST_USER_FOLLOW));
 
             wall.Follow(TEST_USER, TEST_USER_FOLLOW);
             var subscriptions = wallRepository.GetAll(TEST_USER);
@@ -35,11 +31,8 @@ namespace CoduranceTwitter.Tests.Model
         {
             IRepository<Message> messageRepository = new MemoryMessageRepository();
             IRepository<Wall> wallRepository = new MemoryWallRepository();
-            IRepository<User> userRepository = new MemoryUserRepository();
             WallService wall = new WallService(wallRepository, messageRepository);
 
-            userRepository.Add(new User(TEST_USER));
-            
             Message message= new Message() { Username = new User(TEST_USER), Text = TEST_MESSAGE, Timespan = DateTime.Now};
             messageRepository.Add(message);
             var messages = wall.Read(TEST_USER);
@@ -52,11 +45,7 @@ namespace CoduranceTwitter.Tests.Model
         {
             IRepository<Message> messageRepository = new MemoryMessageRepository();
             IRepository<Wall> wallRepository = new MemoryWallRepository();
-            IRepository<User> userRepository = new MemoryUserRepository();
             WallService wall = new WallService(wallRepository, messageRepository);
-
-            userRepository.Add(new User(TEST_USER));
-            userRepository.Add(new User(TEST_USER_FOLLOW));
 
             DateTime dt = DateTime.Now;
             Message message1 = new Message() { Username = new User(TEST_USER), Text = TEST_MESSAGE, Timespan = dt };
