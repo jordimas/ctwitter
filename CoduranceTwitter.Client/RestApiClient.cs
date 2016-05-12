@@ -21,7 +21,6 @@ namespace CoduranceTwitter.Client
 
         public Message[] ReadMessage(string username)
         {
-            var i = $"{_urlPrefix}/message/read/{username}";
             var request = new RestRequest($"{_urlPrefix}/message/read/{username}", Method.GET);
             var rslt = _client.Execute<List<Message>>(request).Data;
             return rslt.ToArray();
