@@ -6,7 +6,7 @@ namespace CoduranceTwitter.Model
 {
     public class MessageService
     {
-        private IRepository <Message> _repository;
+        private readonly IRepository <Message> _repository;
 
         public MessageService(IRepository<Message> repository)
         {

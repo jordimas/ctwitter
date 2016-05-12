@@ -4,7 +4,7 @@ namespace CoduranceTwitter.Model
 {
     public class UserService
     {   
-        private IRepository <User> _repository;
+        private readonly IRepository <User> _repository;
 
         public UserService(IRepository<User> repository)
         {
@@ -13,8 +13,7 @@ namespace CoduranceTwitter.Model
 
         public User GetOrCreateUser(string username)
         {
-            User user;
-            user = _repository.Get(username);
+            User user = _repository.Get(username);
 
             if (user == null)
             {

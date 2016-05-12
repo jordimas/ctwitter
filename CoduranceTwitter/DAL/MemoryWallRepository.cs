@@ -1,12 +1,11 @@
 ﻿using CoduranceTwitter.Model;
-using System;
 using System.Collections.Generic;
 
 namespace CoduranceTwitter.DAL
 {
     public class MemoryWallRepository : IRepository<Wall>
     {
-        private List<Wall> _walls = new List<Wall>();
+        private readonly List<Wall> _walls = new List<Wall>();
         
         public void Add(Wall wall)
         {
