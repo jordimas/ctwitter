@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CoduranceTwitter.DAL;
 using CoduranceTwitter.Model;
-using System.Threading;
 using System;
 
 namespace CoduranceTwitter.Tests.Model
@@ -9,7 +8,6 @@ namespace CoduranceTwitter.Tests.Model
     [TestClass]
     public class MessageTest
     {
-        // todo: expectation
         [TestMethod]
         public void PostMessage_OneMessage()
         {

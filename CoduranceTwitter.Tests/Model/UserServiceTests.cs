@@ -1,8 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CoduranceTwitter.DAL;
+﻿using CoduranceTwitter.DAL;
 using CoduranceTwitter.Model;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CoduranceTwitter.Tests
+namespace CoduranceTwitter.Tests.Model
 {
     [TestClass]
     public class UserTest

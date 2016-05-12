@@ -1,9 +1,9 @@
-﻿using CoduranceTwitter.DAL;
+﻿using System;
+using CoduranceTwitter.DAL;
 using CoduranceTwitter.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
-namespace CoduranceTwitter.Tests
+namespace CoduranceTwitter.Tests.Model
 {
     [TestClass]
     public class WallTests
