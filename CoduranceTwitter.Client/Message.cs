@@ -2,7 +2,7 @@
 
 namespace CoduranceTwitter.Client
 {
-    public class MessageDto
+    public class Message
     {
         public string Text { get; set; }
         public DateTime Timespan { get; set; }

@@ -16,27 +16,27 @@ namespace CoduranceTwitter.Client
         public void PostMessage(string username, string message)
         {
             var request = new RestRequest($"{_urlPrefix}/message/send/{username}/{message}", Method.GET);
-            _client.Execute<List<MessageDto>>(request);
+            _client.Execute<List<Message>>(request);
         }
 
-        public MessageDto[] ReadMessage(string username)
+        public Message[] ReadMessage(string username)
         {
             var i = $"{_urlPrefix}/message/read/{username}";
             var request = new RestRequest($"{_urlPrefix}/message/read/{username}", Method.GET);
-            var rslt = _client.Execute<List<MessageDto>>(request).Data;
+            var rslt = _client.Execute<List<Message>>(request).Data;
             return rslt.ToArray();
         }
 
-        public MessageDto[] WallRead(string username)
+        public Message[] WallRead(string username)
         {
             var request = new RestRequest($"{_urlPrefix}/wall/read/{username}", Method.GET);
-            return _client.Execute<List<MessageDto>>(request).Data.ToArray();
+            return _client.Execute<List<Message>>(request).Data.ToArray();
         }
 
         public void Following(string username, string followUser)
         {
             var request = new RestRequest($"{_urlPrefix}/wall/following/{username}/{followUser}", Method.GET);
-             _client.Execute<List<MessageDto>>(request);
+             _client.Execute<List<Message>>(request);
         }
     }
 }
