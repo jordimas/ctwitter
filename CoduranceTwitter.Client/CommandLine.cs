@@ -16,7 +16,7 @@ namespace CoduranceTwitter.Client
             [Option('m', "message", HelpText = "Message to send")]
             public string Message { get; set; }
 
-            [Option('f', "followuser", HelpText = "Username to use")]
+            [Option('f', "followuser", HelpText = "Username to follow")]
             public string FollowUser { get; set; }
 
             [HelpOption]
