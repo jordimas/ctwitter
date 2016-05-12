@@ -8,10 +8,10 @@ namespace CoduranceTwitter.Tests.Model
     [TestClass]
     public class WallTests
     {
-        string TEST_USER = "test-user1";
-        string TEST_USER_FOLLOW = "test-user-follow";
-        string TEST_MESSAGE = "test-message";
-        string TEST_MESSAGE_FOLLOW = "test-message-follow";
+        readonly string TEST_USER = "test-user1";
+        readonly string TEST_USER_FOLLOW = "test-user-follow";
+        readonly string TEST_MESSAGE = "test-message";
+        readonly string TEST_MESSAGE_FOLLOW = "test-message-follow";
 
         [TestMethod]
         public void Subscribe_OneUser()

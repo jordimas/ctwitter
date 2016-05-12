@@ -7,7 +7,7 @@ namespace CoduranceTwitter.Tests.Model
     [TestClass]
     public class UserTest
     {
-        string TEST_USER = "test-user";
+        readonly string TEST_USER = "test-user";
 
         [TestMethod]
         public void GetOrCreateUser_NewUser()

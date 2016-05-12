@@ -9,7 +9,7 @@ namespace CoduranceTwitter.WebApi
         [HttpGet]
         public Message[] Read(string username)
         {
-            MessageService message = new MessageService(messageRepository);
+            MessageService message = new MessageService(messageRepository, userRepository);
             var messages = message.Read(username);
             return messages.ToArray();
         }
@@ -17,7 +17,7 @@ namespace CoduranceTwitter.WebApi
         [HttpGet]
         public string Send(string username, string data)
         {
-            MessageService message = new MessageService(messageRepository);
+            MessageService message = new MessageService(messageRepository, userRepository);
             message.PostMessage(username, data);
             return $"SendMessage {username} {data}";
         }

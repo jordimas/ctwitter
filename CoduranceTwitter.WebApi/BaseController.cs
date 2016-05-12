@@ -8,6 +8,6 @@ namespace CoduranceTwitter.WebApi
     {
         protected static readonly IRepository<Message> messageRepository = new MemoryMessageRepository();
         protected static readonly IRepository<Wall> wallRepository = new MemoryWallRepository();
-
+        protected static readonly IRepository<User> userRepository = new MemoryUserRepository();
     }
 }

@@ -8,16 +8,17 @@ namespace CoduranceTwitter.Tests.Model
     [TestClass]
     public class MessageTest
     {
-        string TEST_USER1 = "test-user1";
-        string TEST_USER2 = "test-user2";
-        string TEST_TEXT1 = "test-text1";
-        string TEST_TEXT2 = "test-text2";
+        readonly string TEST_USER1 = "test-user1";
+        readonly string TEST_USER2 = "test-user2";
+        readonly string TEST_TEXT1 = "test-text1";
+        readonly string TEST_TEXT2 = "test-text2";
 
         [TestMethod]
         public void PostMessage_OneMessage()
         {
             IRepository<Message> repository = new MemoryMessageRepository();
-            MessageService message = new MessageService(repository);
+            IRepository<User> userRepository = new MemoryUserRepository();
+            MessageService message = new MessageService(repository, userRepository);
             message.PostMessage(TEST_USER1, TEST_TEXT1);
 
             var messages = message.Read(TEST_USER1);
@@ -27,10 +28,23 @@ namespace CoduranceTwitter.Tests.Model
         }
 
         [TestMethod]
+        public void PostMessage_CreatesUser()
+        {
+            IRepository<Message> repository = new MemoryMessageRepository();
+            IRepository<User> userRepository = new MemoryUserRepository();
+            MessageService message = new MessageService(repository, userRepository);
+            message.PostMessage(TEST_USER1, TEST_TEXT1);
+
+            var user = userRepository.Get(TEST_USER1);
+            Assert.AreEqual(user.Username, TEST_USER1);
+        }
+
+        [TestMethod]
         public void Read_OnlyForMe()
         {
             IRepository<Message> repository = new MemoryMessageRepository();
-            MessageService message = new MessageService(repository);
+            IRepository<User> userRepository = new MemoryUserRepository();
+            MessageService message = new MessageService(repository, userRepository);
             message.PostMessage(TEST_USER1, TEST_TEXT1);
             message.PostMessage(TEST_USER2, TEST_TEXT2);
 
@@ -43,10 +57,11 @@ namespace CoduranceTwitter.Tests.Model
         public void Read_Sorted()
         {
             IRepository<Message> repository = new MemoryMessageRepository();
-            MessageService message = new MessageService(repository);
+            IRepository<User> userRepository = new MemoryUserRepository();
+            MessageService message = new MessageService(repository, userRepository);
             DateTime now = DateTime.Now;
-            message.PostMessage(TEST_USER1, TEST_TEXT1, now);
-            message.PostMessage(TEST_USER1, TEST_TEXT2, now.AddMinutes(1));
+            message.PostMessage(new User(TEST_USER1) , TEST_TEXT1, now);
+            message.PostMessage(new User(TEST_USER1), TEST_TEXT2, now.AddMinutes(1));
 
             var messages = message.Read(TEST_USER1);
             Assert.AreEqual(messages.Count, 2);
@@ -58,8 +73,9 @@ namespace CoduranceTwitter.Tests.Model
         public void Read_NoMessage()
         {
             IRepository<Message> repository = new MemoryMessageRepository();
-            MessageService message = new MessageService(repository);
-           
+            IRepository<User> userRepository = new MemoryUserRepository();
+            MessageService message = new MessageService(repository, userRepository);
+
             var messages = message.Read(TEST_USER1);
             Assert.AreEqual(messages.Count, 0);
         }

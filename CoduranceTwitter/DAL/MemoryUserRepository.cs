@@ -6,7 +6,7 @@ namespace CoduranceTwitter.DAL
 {
     public class MemoryUserRepository : IRepository<User>
     {
-        private Dictionary<string, User> _users = new Dictionary<string, User>();
+        private readonly Dictionary<string, User> _users = new Dictionary<string, User>();
         private int _lastUserId = 0;
 
         public void Add(User user)
