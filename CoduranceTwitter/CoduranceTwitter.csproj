@@ -48,7 +48,6 @@
     <Compile Include="DAL\IMessageRepository.cs" />
     <Compile Include="DAL\MemoryUserRepository.cs" />
     <Compile Include="DAL\MemoryWallRepository.cs" />
-    <Compile Include="DAL\MemoryRepository.cs" />
     <Compile Include="Model\MessageService.cs" />
     <Compile Include="Model\Message.cs" />
     <Compile Include="Model\User.cs" />
