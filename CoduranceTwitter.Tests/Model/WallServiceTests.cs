@@ -22,7 +22,7 @@ namespace CoduranceTwitter.Tests
             userRepository.Add(new User(TEST_USER));
             userRepository.Add(new User(TEST_USERFOLLOW));
 
-            wall.Subscribe(TEST_USER, TEST_USERFOLLOW);
+            wall.Follow(TEST_USER, TEST_USERFOLLOW);
             var subscriptions = wallRepository.GetAll(TEST_USER);
             Assert.AreEqual(subscriptions.Count, 1);
         }

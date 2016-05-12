@@ -14,7 +14,7 @@ namespace CoduranceTwitter.Model
             _messageRepository = messageRepository;
         }
 
-        public void Subscribe(string user, string followUser)
+        public void Follow(string user, string followUser)
         {
             var wall = new Wall()
             {

@@ -9,7 +9,7 @@ namespace CoduranceTwitter.WebApi
         public string Following(string username, string data)
         {
             WallService wall = new WallService(wallRepository, messageRepository);
-            wall.Subscribe(username, data);
+            wall.Follow(username, data);
             return $"Following {username} {data}";
         }
 
