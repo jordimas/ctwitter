@@ -1,34 +1,52 @@
 ﻿
+using CoduranceTwitter.DAL;
+using CoduranceTwitter.Model;
+using System;
+
 namespace CoduranceTwitter
 {
-    // See: http://www.bradoncode.com/blog/2012/12/creating-data-repository-using-dapper.html
-    //
-    class Program
+   class Program
     {
+        static ICommand[] GetCommands()
+        {
+            IRepository<Message> messageRepository = new MemoryMessageRepository();
+            IRepository<Wall> wallRepository = new MemoryWallRepository();
+            IRepository<User> userRepository = new MemoryUserRepository();
+
+            ICommand[] commands =
+            {
+                new CommandPost(messageRepository, userRepository),
+                new CommandFollow(wallRepository, userRepository),
+                new CommandWall(wallRepository, userRepository, messageRepository),
+                new CommandRead(messageRepository),
+            };
+
+            return commands;
+        }
+
         static void Main(string[] args)
         {
-            /*
-           string username = "jordi";
-           string text = "text";
+            var commands = GetCommands(); 
+            while (true)
+            {
+                string line = Console.ReadLine();
+                foreach (var command in commands)
+                {
+                    if (command.Process(line))
+                    {
+                        ICommandWithOutput output = command as ICommandWithOutput;
+                        if (output != null)
+                        {
+                            foreach (var outline in output.Output)
+                            {
+                                Console.WriteLine(outline);
+                            }
+                        }
+                        break;
+                    }                    
 
-
-           // Posting
-           Message msg = new Message();
-           msg.PostMessage(username, text);
-
-           // Read
-           msg = new Message();
-           var msgs = msg.Read(username);
-
-           // following: username follows username2
-           string followsUsername = "Carme";
-           var wall = new Wall();
-           wall.Subcribe(username, followsUsername);
-
-           // Wall username 
-           msgs = wall.Read(username);
-           */
-
+                }
+            }
         }
     }
 }
