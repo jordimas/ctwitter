@@ -8,16 +8,16 @@ namespace CoduranceTwitter
     public class CommandWall : ICommandWithOutput
     {
         private readonly IRepository<User> _userRepository;
-        private readonly IRepository<Wall> _wallRepository;
-        private readonly IRepository<Message> _messageRepository;
+        private readonly IWallRepository _wallRepository;
+        private readonly IMessageRepository _messageRepository;
         private readonly string PATTERN = "(.*) (wall)";
         private const int USERNAME_GROUP = 1;
 
         public string[] Output { get; private set; }
 
 
-        public CommandWall(IRepository<Wall> wallRepository, IRepository<User> userRepository,
-            IRepository<Message> messageRepository)
+        public CommandWall(IWallRepository wallRepository, IRepository<User> userRepository,
+            IMessageRepository messageRepository)
         {
             _userRepository = userRepository;
             _wallRepository = wallRepository;
@@ -34,20 +34,22 @@ namespace CoduranceTwitter
 
             string username = match.Groups[USERNAME_GROUP].Value.Trim();
 
-            var messages = Read(username);
+            var user = _userRepository.Get(username);
+
+            var messages = Read(user);
             MessagePrinter messagePrinter = new MessagePrinter(messages);
             Output = messagePrinter.GetOutput();
             return true;
         }
 
-        private List<Message> Read(string username)
+        private List<Message> Read(User user)
         {
-            var messages = _messageRepository.GetAll(username);
-            var subscriptions = _wallRepository.GetAll(username);
+            var messages = _messageRepository.GetAllByUser(user);
+            var subscriptions = _wallRepository.GetAllByUser(user);
 
-            foreach (var user in subscriptions)
+            foreach (var subscription in subscriptions)
             {
-                var subcriptionMessages = _messageRepository.GetAll(user.FollowUser.Username);
+                var subcriptionMessages = _messageRepository.GetAllByUser(subscription.FollowUser);
                 messages.AddRange(subcriptionMessages);
             }
 

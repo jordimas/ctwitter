@@ -9,8 +9,8 @@ namespace CoduranceTwitter
     {
         static ICommand[] GetCommands()
         {
-            IRepository<Message> messageRepository = new MemoryMessageRepository();
-            IRepository<Wall> wallRepository = new MemoryWallRepository();
+            IMessageRepository messageRepository = new MemoryMessageRepository();
+            IWallRepository wallRepository = new MemoryWallRepository();
             IRepository<User> userRepository = new MemoryUserRepository();
 
             ICommand[] commands =
@@ -18,7 +18,7 @@ namespace CoduranceTwitter
                 new CommandPost(messageRepository, userRepository),
                 new CommandFollow(wallRepository, userRepository),
                 new CommandWall(wallRepository, userRepository, messageRepository),
-                new CommandRead(messageRepository),
+                new CommandRead(messageRepository, userRepository),
             };
 
             return commands;

@@ -1,11 +1,18 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CoduranceTwitter.DAL;
+using CoduranceTwitter.Model;
 
 namespace CoduranceTwitter.Tests
 {
     [TestClass]
     public class CommandPostTests
     {
+        [TestInitialize]
+        public void Ssetup()
+        {
+            MemoryRepository.Init();
+        }
+
         [TestMethod]
         public void CommandPost_Message()
         {
@@ -15,7 +22,9 @@ namespace CoduranceTwitter.Tests
             var commandPost = new CommandPost(memoryMessageRepository, memoryUserRepository);
             commandPost.Process(text);
 
-            var message = memoryMessageRepository.Get("Alice");
+            User user = memoryUserRepository.Get("Alice");
+            var message = memoryMessageRepository.GetByUser(user);
+            Assert.AreEqual("Alice", user.Username);
             Assert.AreEqual("Hello Bob", message.Text);
         }
 

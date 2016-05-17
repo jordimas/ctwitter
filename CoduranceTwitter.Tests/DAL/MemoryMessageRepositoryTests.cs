@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CoduranceTwitter.DAL;
 using CoduranceTwitter.Model;
-using System;
+
 
 namespace CoduranceTwitter.Tests.Model
 {
@@ -9,23 +9,31 @@ namespace CoduranceTwitter.Tests.Model
     public class MemoryMessageRepositoryTests
     {
         readonly string TEST_USER1 = "test-user1";
-        readonly string TEST_USER2 = "test-user2";
         readonly string TEST_TEXT1 = "test-text1";
-        readonly string TEST_TEXT2 = "test-text2";
+
+        [TestInitialize]
+        public void Ssetup()
+        {
+            MemoryRepository.Init();
+        }
 
         [TestMethod]
         public void PostMessage_OneMessage()
         {
-            IRepository<Message> repository = new MemoryMessageRepository();
+            IMessageRepository repository = new MemoryMessageRepository();
+            IRepository<User> userRepository = new MemoryUserRepository();
+            
+            User user = new User(TEST_USER1);
+            userRepository.Add(user);
 
             Message message = new Message()
             {
                 Text = TEST_TEXT1,
-                Username = new User(TEST_USER1)
+                Username = user
             };
 
             repository.Add(message);
-            var messages = repository.GetAll(TEST_USER1);
+            var messages = repository.GetAllByUser(user);
             Assert.AreEqual(messages.Count, 1);
             Assert.AreEqual(messages[0].Text, TEST_TEXT1);
             Assert.AreEqual(messages[0].Username.Username, TEST_USER1);

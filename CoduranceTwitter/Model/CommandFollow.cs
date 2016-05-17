@@ -7,12 +7,12 @@ namespace CoduranceTwitter
     public class CommandFollow : ICommand
     {
         private readonly IRepository<User> _userRepository;
-        private readonly IRepository<Wall> _wallRepository;
+        private readonly IWallRepository _wallRepository;
         private readonly string PATTERN = "(.*) (follows) (.*)";
         const int USERNAME_GROUP = 1;
         const int FOLLOWS_GROUP = 3;
 
-        public CommandFollow(IRepository<Wall> wallRepository, IRepository<User> userRepository)
+        public CommandFollow(IWallRepository wallRepository, IRepository<User> userRepository)
         {
             _userRepository = userRepository;
             _wallRepository = wallRepository;
@@ -31,8 +31,8 @@ namespace CoduranceTwitter
 
             var wall = new Wall()
             {
-                Username = new User(username),
-                FollowUser = new User(follows)
+                Username = _userRepository.Get(username),
+                FollowUser = _userRepository.Get(follows)
             };
             _wallRepository.Add(wall);
             return true;

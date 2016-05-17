@@ -7,11 +7,17 @@ namespace CoduranceTwitter.Tests
     [TestClass]
     public class CommandReadTests
     {
-        
+       
         readonly string TEST_USER1 = "test-user1";
-        readonly string TEST_USER2 = "test-user2";
+        //readonly string TEST_USER2 = "test-user2";
         readonly string TEST_TEXT1 = "test-text1";
-        readonly string TEST_TEXT2 = "test-text2";
+        //readonly string TEST_TEXT2 = "test-text2";
+
+        [TestInitialize]
+        public void Ssetup()
+        {
+            MemoryRepository.Init();
+        }
 
         [TestMethod]
         public void PostMessage_OneMessage()
@@ -28,7 +34,7 @@ namespace CoduranceTwitter.Tests
             memoryUserRepository.Add(user);
             memoryMessageRepository.Add(message);
 
-            var commandread = new CommandRead(memoryMessageRepository);
+            var commandread = new CommandRead(memoryMessageRepository, memoryUserRepository);
             commandread.Process(TEST_USER1);
         }
 

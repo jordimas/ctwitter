@@ -3,23 +3,42 @@ using System.Collections.Generic;
 
 namespace CoduranceTwitter.DAL
 {
-    public class MemoryWallRepository : IRepository<Wall>
-    {
-        private readonly List<Wall> _walls = new List<Wall>();
-        
+    public class MemoryWallRepository : MemoryRepository, IWallRepository
+    {   
         public void Add(Wall wall)
         {
-            _walls.Add(wall);
+            var WallMemoryRow = new WallMemoryRow()
+            {
+               UsernameId = wall.Username.Id.Value,
+               FollowUserId = wall.FollowUser.Id.Value
+            };
+            _walls.Add(WallMemoryRow);
         }
 
-        public Wall Get(string username)
+        public List<Wall> GetAllByUser(User user)
         {
-            return _walls.Find(x => x.Username.Username == username);
+            List<Wall> walls = new List<Wall>();
+            var wallsRows = _walls.FindAll(x => x.UsernameId == user.Id.Value);
+            foreach (var wallRow in wallsRows)
+            {
+                walls.Add(FromWallMemoryRow(wallRow));
+            }
+            return walls;
         }
 
-        public List<Wall> GetAll(string username)
+        public Wall GetByUser(User user)
         {
-            return _walls.FindAll(x => x.Username.Username == username);
+            var wall = _walls.Find(x => x.UsernameId == user.Id.Value);
+            return FromWallMemoryRow(wall);
+        }
+
+        private Wall FromWallMemoryRow(WallMemoryRow memory)
+        {
+            return new Wall()
+            {
+                Username = _users[memory.UsernameId],
+                FollowUser = _users[memory.FollowUserId]
+            };
         }
     }
 }
