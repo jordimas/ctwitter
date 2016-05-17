@@ -13,7 +13,7 @@ namespace CoduranceTwitter
         private readonly string PATTERN = "(.*) (wall)";
         private const int USERNAME_GROUP = 1;
 
-        public string[] Output { get; private set; }
+        public List<Message> Output { get; private set; }
 
 
         public CommandWall(IWallRepository wallRepository, IUserRepository userRepository,
@@ -37,8 +37,7 @@ namespace CoduranceTwitter
             var user = _userRepository.Get(username);
 
             var messages = Read(user);
-            MessagePrinter messagePrinter = new MessagePrinter(messages);
-            Output = messagePrinter.GetOutput();
+            Output = messages;
             return true;
         }
 

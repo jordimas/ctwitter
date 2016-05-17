@@ -1,5 +1,6 @@
 ﻿using CoduranceTwitter.DAL;
 using CoduranceTwitter.Model;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace CoduranceTwitter
@@ -10,8 +11,8 @@ namespace CoduranceTwitter
         private readonly IUserRepository _userRepository;
         private readonly string PATTERN = "(.*)";
         private const int USERNAME_GROUP = 1;
-        public string[] Output { get; private set; }
-        
+        public List <Message> Output { get; private set; }
+
         public CommandRead(IMessageRepository messageRepository, IUserRepository userRepository)
         {
             _messageRepository = messageRepository;
@@ -31,9 +32,8 @@ namespace CoduranceTwitter
 
             var messages = _messageRepository.GetAllByUser(user);
             messages.Sort((x, y) => y.Timespan.CompareTo(x.Timespan));
-
-            MessagePrinter messagePrinter = new MessagePrinter(messages);
-            Output = messagePrinter.GetOutput();
+            
+            Output = messages;
             return true;
         }
     }

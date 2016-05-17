@@ -7,7 +7,7 @@ namespace CoduranceTwitter.Tests
     [TestClass]
     public class CommandReadTests
     {
-       
+
         readonly string TEST_USER1 = "test-user1";
         //readonly string TEST_USER2 = "test-user2";
         readonly string TEST_TEXT1 = "test-text1";
@@ -24,6 +24,7 @@ namespace CoduranceTwitter.Tests
         {
             var memoryMessageRepository = new MemoryMessageRepository();
             var memoryUserRepository = new MemoryUserRepository();
+            var commandRead = new CommandRead(memoryMessageRepository, memoryUserRepository);
 
             var user = new User(TEST_USER1);
             var message = new Message()
@@ -34,23 +35,26 @@ namespace CoduranceTwitter.Tests
             memoryUserRepository.Add(user);
             memoryMessageRepository.Add(message);
 
-            var commandread = new CommandRead(memoryMessageRepository, memoryUserRepository);
-            commandread.Process(TEST_USER1);
+            commandRead.Process(TEST_USER1);
+            var output = commandRead.Output;
+            Assert.AreEqual(1, output.Count);
+            Assert.AreEqual(TEST_USER1, output[0].Username);
         }
 
-        /*
-        [TestMethod]
+        
+        /*[TestMethod]
         public void PostMessage_CreatesUser()
         {
-            IRepository<Message> repository = new MemoryMessageRepository();
-            IRepository<User> userRepository = new MemoryUserRepository();
+            var memoryMessageRepository = new MemoryMessageRepository();
+            var memoryUserRepository = new MemoryUserRepository();
             MessageService message = new MessageService(repository, userRepository);
             message.PostMessage(TEST_USER1, TEST_TEXT1);
 
             var user = userRepository.Get(TEST_USER1);
             Assert.AreEqual(user.Username, TEST_USER1);
-        }
+        }*/
 
+        /*
         [TestMethod]
         public void Read_OnlyForMe()
         {
