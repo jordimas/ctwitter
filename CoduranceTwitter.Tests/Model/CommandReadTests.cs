@@ -38,7 +38,7 @@ namespace CoduranceTwitter.Tests
             commandRead.Process(TEST_USER1);
             var output = commandRead.Output;
             Assert.AreEqual(1, output.Count);
-            Assert.AreEqual(TEST_USER1, output[0].Username);
+            Assert.AreEqual(TEST_USER1, output[0].Username.Username);
         }
 
         
