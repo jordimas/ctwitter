@@ -11,7 +11,7 @@ namespace CoduranceTwitter
         {
             IMessageRepository messageRepository = new MemoryMessageRepository();
             IWallRepository wallRepository = new MemoryWallRepository();
-            IRepository<User> userRepository = new MemoryUserRepository();
+            IUserRepository userRepository = new MemoryUserRepository();
 
             ICommand[] commands =
             {

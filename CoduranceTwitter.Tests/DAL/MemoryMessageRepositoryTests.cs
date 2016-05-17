@@ -21,7 +21,7 @@ namespace CoduranceTwitter.Tests.Model
         public void PostMessage_OneMessage()
         {
             IMessageRepository repository = new MemoryMessageRepository();
-            IRepository<User> userRepository = new MemoryUserRepository();
+            IUserRepository userRepository = new MemoryUserRepository();
             
             User user = new User(TEST_USER1);
             userRepository.Add(user);

@@ -8,12 +8,12 @@ namespace CoduranceTwitter
     public class CommandPost : ICommand
     {
         private readonly IMessageRepository _messageRepository;
-        private readonly IRepository<User> _userRepository;
+        private readonly IUserRepository _userRepository;
         private readonly string PATTERN = "(.*)(->)(.*)";
         const int USERNAME_GROUP = 1;
         const int TEXT_GROUP = 3;
 
-        public CommandPost(IMessageRepository messageRepository, IRepository<User> userRepository)
+        public CommandPost(IMessageRepository messageRepository, IUserRepository userRepository)
         {
             _messageRepository = messageRepository;
             _userRepository = userRepository;

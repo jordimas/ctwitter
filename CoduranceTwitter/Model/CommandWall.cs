@@ -7,7 +7,7 @@ namespace CoduranceTwitter
 {
     public class CommandWall : ICommandWithOutput
     {
-        private readonly IRepository<User> _userRepository;
+        private readonly IUserRepository _userRepository;
         private readonly IWallRepository _wallRepository;
         private readonly IMessageRepository _messageRepository;
         private readonly string PATTERN = "(.*) (wall)";
@@ -16,7 +16,7 @@ namespace CoduranceTwitter
         public string[] Output { get; private set; }
 
 
-        public CommandWall(IWallRepository wallRepository, IRepository<User> userRepository,
+        public CommandWall(IWallRepository wallRepository, IUserRepository userRepository,
             IMessageRepository messageRepository)
         {
             _userRepository = userRepository;

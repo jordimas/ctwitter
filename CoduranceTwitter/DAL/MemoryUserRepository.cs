@@ -1,10 +1,8 @@
-﻿using System;
-using CoduranceTwitter.Model;
-using System.Collections.Generic;
+﻿using CoduranceTwitter.Model;
 
 namespace CoduranceTwitter.DAL
 {
-    public class MemoryUserRepository : MemoryRepository, IRepository<User>
+    public class MemoryUserRepository : MemoryRepository, IUserRepository
     {
         private int _lastUserId = 0;
 
@@ -19,11 +17,6 @@ namespace CoduranceTwitter.DAL
         public User Get(string username)
         {
             return _users.Find(x => x.Username == username);
-        }
-
-        public List<User> GetAll(string username)
-        {
-            throw new NotImplementedException();
         }
     }
 }

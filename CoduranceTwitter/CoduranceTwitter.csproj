@@ -47,11 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\IMessageRepository.cs" />
+    <Compile Include="DAL\IUserRepository.cs" />
     <Compile Include="DAL\MemoryRepository.cs" />
     <Compile Include="Model\CommandFollow.cs" />
     <Compile Include="Model\CommandPost.cs" />
     <Compile Include="DAL\MemoryMessageRepository.cs" />
-    <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\MemoryUserRepository.cs" />
     <Compile Include="DAL\MemoryWallRepository.cs" />
     <Compile Include="Model\CommandRead.cs" />

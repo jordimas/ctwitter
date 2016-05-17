@@ -6,13 +6,13 @@ namespace CoduranceTwitter
 {
     public class CommandFollow : ICommand
     {
-        private readonly IRepository<User> _userRepository;
+        private readonly IUserRepository _userRepository;
         private readonly IWallRepository _wallRepository;
         private readonly string PATTERN = "(.*) (follows) (.*)";
         const int USERNAME_GROUP = 1;
         const int FOLLOWS_GROUP = 3;
 
-        public CommandFollow(IWallRepository wallRepository, IRepository<User> userRepository)
+        public CommandFollow(IWallRepository wallRepository, IUserRepository userRepository)
         {
             _userRepository = userRepository;
             _wallRepository = wallRepository;

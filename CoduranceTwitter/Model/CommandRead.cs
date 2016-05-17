@@ -7,12 +7,12 @@ namespace CoduranceTwitter
     public class CommandRead : ICommandWithOutput
     {
         private readonly IMessageRepository _messageRepository;
-        private readonly IRepository<User> _userRepository;
+        private readonly IUserRepository _userRepository;
         private readonly string PATTERN = "(.*)";
         private const int USERNAME_GROUP = 1;
         public string[] Output { get; private set; }
         
-        public CommandRead(IMessageRepository messageRepository, IRepository<User> userRepository)
+        public CommandRead(IMessageRepository messageRepository, IUserRepository userRepository)
         {
             _messageRepository = messageRepository;
             _userRepository = userRepository;
