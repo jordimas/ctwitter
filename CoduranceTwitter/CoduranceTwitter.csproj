@@ -58,7 +58,7 @@
     <Compile Include="Model\CommandWall.cs" />
     <Compile Include="Model\ICommand.cs" />
     <Compile Include="Model\ICommandWithOutput.cs" />
-    <Compile Include="Model\IWallRepository.cs" />
+    <Compile Include="DAL\IWallRepository.cs" />
     <Compile Include="Model\Message.cs" />
     <Compile Include="Model\MessagePrinter.cs" />
     <Compile Include="Model\User.cs" />
