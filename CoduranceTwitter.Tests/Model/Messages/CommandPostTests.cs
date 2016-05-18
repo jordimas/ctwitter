@@ -8,19 +8,22 @@ namespace CoduranceTwitter.Tests.Model.Messages
     [TestClass]
     public class CommandPostTests : BaseTest
     {
+        readonly string TEST_USER1 = "test-user1";
+        readonly string TEST_TEXT1 = "test-text1";
+        
         [TestMethod]
         public void CommandPost_Message()
         {
             var memoryMessageRepository = new MemoryMessageRepository();
             var memoryUserRepository = new MemoryUserRepository();
-            string text = "Alice -> Hello Bob";
+            string text = $"{TEST_USER1} -> {TEST_TEXT1}";
             var commandPost = new CommandPost(memoryMessageRepository, memoryUserRepository);
             commandPost.Process(text);
 
-            User user = memoryUserRepository.Get("Alice");
+            User user = memoryUserRepository.Get(TEST_USER1);
             var message = memoryMessageRepository.GetByUser(user);
-            Assert.AreEqual("Alice", user.Username);
-            Assert.AreEqual("Hello Bob", message.Text);
+            Assert.AreEqual(TEST_USER1, user.Username);
+            Assert.AreEqual(TEST_TEXT1, message.Text);
         }
 
         [TestMethod]
