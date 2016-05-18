@@ -16,7 +16,29 @@ namespace CoduranceTwitter.Tests.Model.Walls
         readonly string TEST_TEXT2 = "test-text2";
 
         [TestMethod]
-        public void CommandWall_OneUser()
+        public void CommandWall_FollowNoOne()
+        {
+            var memoryWallRepository = new MemoryWallRepository();
+            var memoryUserRepository = new MemoryUserRepository();
+            var memoryMessageRepository = new MemoryMessageRepository();
+
+            var user1 = new User(TEST_USER1);
+            memoryUserRepository.Add(user1);
+
+            var message1 = new Message() { Text = TEST_TEXT1, User = user1, Timespan = DateTime.Now };
+            memoryMessageRepository.Add(message1);
+
+            string text = $"{TEST_USER1} wall";
+            var commandPost = new CommandWall(memoryWallRepository, memoryUserRepository, memoryMessageRepository);
+            commandPost.Process(text);
+            var messages = commandPost.Messages;
+
+            Assert.AreEqual(1, messages.Count);
+            Assert.AreEqual(TEST_USER1, messages[0].User.Username);
+        }
+
+        [TestMethod]
+        public void CommandWall_FollowOneUser()
         {
             var memoryWallRepository = new MemoryWallRepository();
             var memoryUserRepository = new MemoryUserRepository();
