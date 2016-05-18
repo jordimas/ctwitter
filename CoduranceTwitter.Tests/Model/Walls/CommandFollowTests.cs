@@ -8,24 +8,27 @@ namespace CoduranceTwitter.Tests.Model.Walls
     [TestClass]
     public class CommandFollowTests : BaseTest
     {
+        readonly string TEST_USER1 = "test-user1";
+        readonly string TEST_USER2 = "test-user2";
+
         [TestMethod]
         public void CommandFollow_OneUser()
         {
             var memoryWallRepository = new MemoryWallRepository();
             var memoryUserRepository = new MemoryUserRepository();
 
-            var userCharlie = new User("Charlie");
-            var userAlicie = new User("Alice");
+            var userCharlie = new User(TEST_USER1);
+            var userAlicie = new User(TEST_USER2);
             memoryUserRepository.Add(userCharlie);
             memoryUserRepository.Add(userAlicie);
 
-            string text = "Charlie follows Alice";
+            string text = $"{TEST_USER1} follows {TEST_USER2}";
             var commandPost = new CommandFollow(memoryWallRepository, memoryUserRepository);
             commandPost.Process(text);
 
-            var user = memoryUserRepository.Get("Charlie");
+            var user = memoryUserRepository.Get(TEST_USER1);
             var wall = memoryWallRepository.GetByUser(user);
-            Assert.AreEqual("Charlie", wall.Username.Username);
+            Assert.AreEqual(TEST_USER1, wall.Username.Username);
         }
     }
 }
