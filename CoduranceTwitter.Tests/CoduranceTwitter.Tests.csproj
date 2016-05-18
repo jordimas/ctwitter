@@ -58,6 +58,7 @@
     <Compile Include="Model\Walls\CommandFollowTests.cs" />
     <Compile Include="Model\Messages\CommandPostTests.cs" />
     <Compile Include="Model\Messages\CommandReadTests.cs" />
+    <Compile Include="Model\Walls\CommandWallTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
