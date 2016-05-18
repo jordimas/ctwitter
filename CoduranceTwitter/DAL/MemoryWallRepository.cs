@@ -9,6 +9,11 @@ namespace CoduranceTwitter.DAL
     {   
         public void Add(Wall wall)
         {
+            var wallsRows = _walls.Find(x => x.UsernameId == wall.User.Id &&
+                x.FollowUserId == wall.FollowUser.Id);
+
+            if (wallsRows != null) return;
+
             var wallMemoryRow = new WallMemoryRow()
             {
                UsernameId = wall.User.Id.Value,
