@@ -1,6 +1,7 @@
 ﻿using System;
+using CoduranceTwitter.Model.Users;
 
-namespace CoduranceTwitter.Model
+namespace CoduranceTwitter.Model.Messages
 {
     public class Message
     {

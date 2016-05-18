@@ -1,8 +1,8 @@
-﻿using CoduranceTwitter.DAL;
-using CoduranceTwitter.Model;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
+using CoduranceTwitter.DAL;
+using CoduranceTwitter.Model.Users;
 
-namespace CoduranceTwitter
+namespace CoduranceTwitter.Model.Walls
 {
     public class CommandFollow : ICommand
     {

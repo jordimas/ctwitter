@@ -46,23 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\IMessageRepository.cs" />
-    <Compile Include="DAL\IUserRepository.cs" />
+    <Compile Include="Model\Messages\IMessageRepository.cs" />
+    <Compile Include="Model\Users\IUserRepository.cs" />
     <Compile Include="DAL\MemoryRepository.cs" />
-    <Compile Include="Model\CommandFollow.cs" />
-    <Compile Include="Model\CommandPost.cs" />
+    <Compile Include="Model\Walls\CommandFollow.cs" />
+    <Compile Include="Model\Messages\CommandPost.cs" />
     <Compile Include="DAL\MemoryMessageRepository.cs" />
     <Compile Include="DAL\MemoryUserRepository.cs" />
     <Compile Include="DAL\MemoryWallRepository.cs" />
-    <Compile Include="Model\CommandRead.cs" />
-    <Compile Include="Model\CommandWall.cs" />
+    <Compile Include="Model\Messages\CommandRead.cs" />
+    <Compile Include="Model\Walls\CommandWall.cs" />
     <Compile Include="Model\ICommand.cs" />
     <Compile Include="Model\ICommandWithOutput.cs" />
-    <Compile Include="DAL\IWallRepository.cs" />
-    <Compile Include="Model\Message.cs" />
-    <Compile Include="Model\MessagePrinter.cs" />
-    <Compile Include="Model\User.cs" />
-    <Compile Include="Model\Wall.cs" />
+    <Compile Include="Model\Walls\IWallRepository.cs" />
+    <Compile Include="Model\Messages\Message.cs" />
+    <Compile Include="Model\Messages\MessagePrinter.cs" />
+    <Compile Include="Model\Users\User.cs" />
+    <Compile Include="Model\Walls\Wall.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CoduranceTwitter.Model
+namespace CoduranceTwitter.Model.Messages
 {
     public class MessagePrinter
     {
-        List<Message> _messages;
+        readonly List<Message> _messages;
 
         public MessagePrinter(List<Message> messages)
         {

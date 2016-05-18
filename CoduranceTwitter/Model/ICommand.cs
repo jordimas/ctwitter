@@ -1,4 +1,4 @@
-﻿namespace CoduranceTwitter
+﻿namespace CoduranceTwitter.Model
 {
     public interface ICommand
     {

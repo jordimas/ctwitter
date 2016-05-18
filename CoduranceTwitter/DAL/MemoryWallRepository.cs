@@ -1,6 +1,7 @@
-﻿using CoduranceTwitter.Model;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using CoduranceTwitter.Model.Users;
+using CoduranceTwitter.Model.Walls;
 
 namespace CoduranceTwitter.DAL
 {

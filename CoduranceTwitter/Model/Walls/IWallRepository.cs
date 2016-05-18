@@ -1,7 +1,7 @@
-﻿using CoduranceTwitter.Model;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using CoduranceTwitter.Model.Users;
 
-namespace CoduranceTwitter.DAL
+namespace CoduranceTwitter.Model.Walls
 {
     public interface IWallRepository
     {

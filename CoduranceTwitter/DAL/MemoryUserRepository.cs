@@ -1,4 +1,4 @@
-﻿using CoduranceTwitter.Model;
+﻿using CoduranceTwitter.Model.Users;
 
 namespace CoduranceTwitter.DAL
 {

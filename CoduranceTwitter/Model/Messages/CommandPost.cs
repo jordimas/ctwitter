@@ -1,9 +1,8 @@
-﻿using CoduranceTwitter.DAL;
-using CoduranceTwitter.Model;
-using System;
+﻿using System;
 using System.Text.RegularExpressions;
+using CoduranceTwitter.Model.Users;
 
-namespace CoduranceTwitter
+namespace CoduranceTwitter.Model.Messages
 {
     public class CommandPost : ICommand
     {

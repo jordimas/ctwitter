@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CoduranceTwitter.DAL;
-using CoduranceTwitter.Model;
+using CoduranceTwitter.Model.Messages;
+using CoduranceTwitter.Model.Users;
 
 namespace CoduranceTwitter.Tests.Model
 {

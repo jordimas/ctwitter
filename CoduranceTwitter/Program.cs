@@ -1,7 +1,9 @@
-﻿
-using CoduranceTwitter.DAL;
+﻿using CoduranceTwitter.DAL;
 using CoduranceTwitter.Model;
 using System;
+using CoduranceTwitter.Model.Messages;
+using CoduranceTwitter.Model.Users;
+using CoduranceTwitter.Model.Walls;
 
 namespace CoduranceTwitter
 {

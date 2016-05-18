@@ -1,6 +1,7 @@
-﻿using CoduranceTwitter.Model;
-using System.Collections.Generic;
-using System;
+﻿using System.Collections.Generic;
+using System.Linq;
+using CoduranceTwitter.Model.Messages;
+using CoduranceTwitter.Model.Users;
 
 namespace CoduranceTwitter.DAL
 {
@@ -25,13 +26,8 @@ namespace CoduranceTwitter.DAL
 
         public List<Message> GetAllByUser(User user)
         {
-            List<Message> messages = new List<Message>();
             var messagesDb = _messages.FindAll(x => x.UserId == user.Id);
-            foreach (var message in messagesDb)
-            {
-                messages.Add(FromMessageMemoryDb(message, user));
-            }
-            return messages;
+            return messagesDb.Select(message => FromMessageMemoryDb(message, user)).ToList();
         }
 
         private Message FromMessageMemoryDb(MessageMemoryRow memory, User user)

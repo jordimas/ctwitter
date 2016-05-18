@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text.RegularExpressions;
-
-namespace CoduranceTwitter.Model
+﻿namespace CoduranceTwitter.Model.Users
 {
     public class User
     {

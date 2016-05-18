@@ -1,5 +1,6 @@
-﻿
-namespace CoduranceTwitter.Model
+﻿using CoduranceTwitter.Model.Users;
+
+namespace CoduranceTwitter.Model.Walls
 {
     public class Wall
     {

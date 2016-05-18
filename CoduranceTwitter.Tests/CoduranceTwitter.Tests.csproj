@@ -55,10 +55,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BaseTest.cs" />
-    <Compile Include="Model\CommandFollowTests.cs" />
-    <Compile Include="Model\CommandPostTests.cs" />
-    <Compile Include="DAL\MemoryMessageRepositoryTests.cs" />
-    <Compile Include="Model\CommandReadTests.cs" />
+    <Compile Include="Model\Walls\CommandFollowTests.cs" />
+    <Compile Include="Model\Messages\CommandPostTests.cs" />
+    <Compile Include="Model\Messages\CommandReadTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\Users\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

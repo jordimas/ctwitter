@@ -1,6 +1,4 @@
-﻿using CoduranceTwitter.Model;
-
-namespace CoduranceTwitter.DAL
+﻿namespace CoduranceTwitter.Model.Users
 {
     public interface IUserRepository
     {
