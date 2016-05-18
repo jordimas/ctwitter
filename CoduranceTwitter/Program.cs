@@ -15,15 +15,8 @@ namespace CoduranceTwitter
             IWallRepository wallRepository = new MemoryWallRepository();
             IUserRepository userRepository = new MemoryUserRepository();
 
-            ICommand[] commands =
-            {
-                new CommandPost(messageRepository, userRepository),
-                new CommandFollow(wallRepository, userRepository),
-                new CommandWall(wallRepository, userRepository, messageRepository),
-                new CommandRead(messageRepository, userRepository),
-            };
-
-            return commands;
+            var commands = new Commands(messageRepository, wallRepository, userRepository);
+            return commands.Get();
         }
 
         static void Main(string[] args)

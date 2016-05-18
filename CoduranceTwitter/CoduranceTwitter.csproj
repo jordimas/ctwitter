@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Commands.cs" />
     <Compile Include="Model\Messages\IMessageRepository.cs" />
     <Compile Include="Model\Users\IUserRepository.cs" />
     <Compile Include="DAL\MemoryRepository.cs" />
