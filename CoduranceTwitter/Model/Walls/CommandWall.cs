@@ -35,7 +35,6 @@ namespace CoduranceTwitter.Model.Walls
             string username = match.Groups[USERNAME_GROUP].Value.Trim();
 
             var user = _userRepository.Get(username);
-
             var messages = Read(user);
             Messages = messages;
             return true;
