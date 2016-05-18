@@ -2,23 +2,17 @@
 using CoduranceTwitter.DAL;
 using CoduranceTwitter.Model;
 
-namespace CoduranceTwitter.Tests
+namespace CoduranceTwitter.Tests.Model
 {
     [TestClass]
-    public class CommandReadTests
+    public class CommandReadTests : BaseTest
     {
 
         readonly string TEST_USER1 = "test-user1";
         //readonly string TEST_USER2 = "test-user2";
         readonly string TEST_TEXT1 = "test-text1";
         //readonly string TEST_TEXT2 = "test-text2";
-
-        [TestInitialize]
-        public void Ssetup()
-        {
-            MemoryRepository.Init();
-        }
-
+        
         [TestMethod]
         public void PostMessage_OneMessage()
         {

@@ -1,22 +1,15 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CoduranceTwitter.DAL;
+﻿using CoduranceTwitter.DAL;
 using CoduranceTwitter.Model;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-
-namespace CoduranceTwitter.Tests.Model
+namespace CoduranceTwitter.Tests.DAL
 {
     [TestClass]
-    public class MemoryMessageRepositoryTests
+    public class MemoryMessageRepositoryTests : BaseTest
     {
         readonly string TEST_USER1 = "test-user1";
         readonly string TEST_TEXT1 = "test-text1";
-
-        [TestInitialize]
-        public void Ssetup()
-        {
-            MemoryRepository.Init();
-        }
-
+        
         [TestMethod]
         public void PostMessage_OneMessage()
         {

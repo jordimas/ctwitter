@@ -54,6 +54,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BaseTest.cs" />
     <Compile Include="Model\CommandFollowTests.cs" />
     <Compile Include="Model\CommandPostTests.cs" />
     <Compile Include="DAL\MemoryMessageRepositoryTests.cs" />

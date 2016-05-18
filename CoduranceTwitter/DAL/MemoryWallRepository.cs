@@ -1,5 +1,6 @@
 ﻿using CoduranceTwitter.Model;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CoduranceTwitter.DAL
 {
@@ -17,13 +18,8 @@ namespace CoduranceTwitter.DAL
 
         public List<Wall> GetAllByUser(User user)
         {
-            List<Wall> walls = new List<Wall>();
             var wallsRows = _walls.FindAll(x => x.UsernameId == user.Id.Value);
-            foreach (var wallRow in wallsRows)
-            {
-                walls.Add(FromWallMemoryRow(wallRow));
-            }
-            return walls;
+            return wallsRows.Select(wallRow => FromWallMemoryRow(wallRow)).ToList();
         }
 
         public Wall GetByUser(User user)

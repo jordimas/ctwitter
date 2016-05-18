@@ -2,17 +2,11 @@
 using CoduranceTwitter.DAL;
 using CoduranceTwitter.Model;
 
-namespace CoduranceTwitter.Tests
+namespace CoduranceTwitter.Tests.Model
 {
     [TestClass]
-    public class CommandPostTests
+    public class CommandPostTests : BaseTest
     {
-        [TestInitialize]
-        public void Ssetup()
-        {
-            MemoryRepository.Init();
-        }
-
         [TestMethod]
         public void CommandPost_Message()
         {

@@ -1,18 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CoduranceTwitter.DAL;
+﻿using CoduranceTwitter.DAL;
 using CoduranceTwitter.Model;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CoduranceTwitter.Tests
+namespace CoduranceTwitter.Tests.Model
 {
     [TestClass]
-    public class CommandFollowTests
+    public class CommandFollowTests : BaseTest
     {
-        [TestInitialize]
-        public void Ssetup()
-        {
-            MemoryRepository.Init();
-        }
-
         [TestMethod]
         public void CommandFollow_OneUser()
         {
