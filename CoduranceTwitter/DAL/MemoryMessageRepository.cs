@@ -20,12 +20,15 @@ namespace CoduranceTwitter.DAL
 
         public Message GetByUser(User user)
         {
+            if (user == null) return null;
             var message = _messages.Find(x => x.UserId == user.Id);
             return FromMessageMemoryDb(message, user);
         }
 
         public List<Message> GetAllByUser(User user)
         {
+            if (user == null) return new List<Message>();
+
             var messagesDb = _messages.FindAll(x => x.UserId == user.Id);
             return messagesDb.Select(message => FromMessageMemoryDb(message, user)).ToList();
         }

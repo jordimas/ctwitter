@@ -19,12 +19,16 @@ namespace CoduranceTwitter.DAL
 
         public List<Wall> GetAllByUser(User user)
         {
+            if (user == null) return new List<Wall>();
+
             var wallsRows = _walls.FindAll(x => x.UsernameId == user.Id.Value);
             return wallsRows.Select(wallRow => FromWallMemoryRow(wallRow)).ToList();
         }
 
         public Wall GetByUser(User user)
         {
+            if (user == null) return null;
+
             var wall = _walls.Find(x => x.UsernameId == user.Id.Value);
             return FromWallMemoryRow(wall);
         }
