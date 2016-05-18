@@ -11,7 +11,7 @@ namespace CoduranceTwitter.DAL
         {
             var WallMemoryRow = new WallMemoryRow()
             {
-               UsernameId = wall.Username.Id.Value,
+               UsernameId = wall.User.Id.Value,
                FollowUserId = wall.FollowUser.Id.Value
             };
             _walls.Add(WallMemoryRow);
@@ -33,7 +33,7 @@ namespace CoduranceTwitter.DAL
         {
             return new Wall()
             {
-                Username = _users[memory.UsernameId],
+                User = _users[memory.UsernameId],
                 FollowUser = _users[memory.FollowUserId]
             };
         }

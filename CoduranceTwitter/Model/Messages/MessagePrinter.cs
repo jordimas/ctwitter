@@ -31,7 +31,7 @@ namespace CoduranceTwitter.Model.Messages
             {
                 TimeSpan span = DateTime.Now - message.Timespan;
                 string time = RenderTime(span);
-                string msg = $"{message.Username.Username} - {message.Text} ({time})";
+                string msg = $"{message.User.Username} - {message.Text} ({time})";
                 output.Add(msg);
             }
 

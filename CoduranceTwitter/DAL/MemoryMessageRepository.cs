@@ -13,7 +13,7 @@ namespace CoduranceTwitter.DAL
             {
                 Text = message.Text,
                 Timespan = message.Timespan,
-                UserId = message.Username.Id.Value,
+                UserId = message.User.Id.Value,
             };
             _messages.Add(messageMemoryDb);
         }
@@ -36,7 +36,7 @@ namespace CoduranceTwitter.DAL
             {
                 Timespan = memory.Timespan,
                 Text = memory.Text,
-                Username = user
+                User = user
             };
         }
     }

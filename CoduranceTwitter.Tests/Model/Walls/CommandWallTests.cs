@@ -28,13 +28,13 @@ namespace CoduranceTwitter.Tests.Model.Walls
             memoryUserRepository.Add(user2);
 
             DateTime now = DateTime.Now;
-            var message1 = new Message() { Text = TEST_TEXT1, Username = user1, Timespan = now.AddMinutes(1)};
+            var message1 = new Message() { Text = TEST_TEXT1, User = user1, Timespan = now.AddMinutes(1)};
             memoryMessageRepository.Add(message1);
 
-            var message2 = new Message() { Text = TEST_TEXT2, Username = user2, Timespan = now};
+            var message2 = new Message() { Text = TEST_TEXT2, User = user2, Timespan = now};
             memoryMessageRepository.Add(message2);
 
-            var wall = new Wall { Username =  user1, FollowUser = user2};
+            var wall = new Wall { User =  user1, FollowUser = user2};
             memoryWallRepository.Add(wall);
 
             string text = $"{TEST_USER1} wall";
@@ -43,8 +43,8 @@ namespace CoduranceTwitter.Tests.Model.Walls
             var messages = commandPost.Messages;
 
             Assert.AreEqual(2, messages.Count);
-            Assert.AreEqual(TEST_USER1, messages[0].Username.Username);
-            Assert.AreEqual(TEST_USER2, messages[1].Username.Username);
+            Assert.AreEqual(TEST_USER1, messages[0].User.Username);
+            Assert.AreEqual(TEST_USER2, messages[1].User.Username);
         }
     }
 }

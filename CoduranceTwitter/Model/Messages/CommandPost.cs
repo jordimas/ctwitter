@@ -31,7 +31,7 @@ namespace CoduranceTwitter.Model.Messages
 
             Message message = new Message()
             {
-                Username = GetOrCreateUser(username),
+                User = GetOrCreateUser(username),
                 Text = text,
                 Timespan = DateTime.Now
             };

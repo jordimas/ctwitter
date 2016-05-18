@@ -31,7 +31,7 @@ namespace CoduranceTwitter.Model.Walls
 
             var wall = new Wall()
             {
-                Username = _userRepository.Get(username),
+                User = _userRepository.Get(username),
                 FollowUser = _userRepository.Get(follows)
             };
             _wallRepository.Add(wall);

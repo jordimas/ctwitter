@@ -28,7 +28,7 @@ namespace CoduranceTwitter.Tests.Model.Walls
 
             var user = memoryUserRepository.Get(TEST_USER1);
             var wall = memoryWallRepository.GetByUser(user);
-            Assert.AreEqual(TEST_USER1, wall.Username.Username);
+            Assert.AreEqual(TEST_USER1, wall.User.Username);
         }
     }
 }
