@@ -1,5 +1,4 @@
 ﻿using System.Text.RegularExpressions;
-using CoduranceTwitter.DAL;
 using CoduranceTwitter.Model.Users;
 
 namespace CoduranceTwitter.Model.Walls

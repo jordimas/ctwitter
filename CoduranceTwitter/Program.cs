@@ -47,7 +47,6 @@ namespace CoduranceTwitter
                         }
                         break;
                     }                    
-
                 }
             }
         }
