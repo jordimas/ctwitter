@@ -9,12 +9,12 @@ namespace CoduranceTwitter.DAL
     {   
         public void Add(Wall wall)
         {
-            var WallMemoryRow = new WallMemoryRow()
+            var wallMemoryRow = new WallMemoryRow()
             {
                UsernameId = wall.User.Id.Value,
                FollowUserId = wall.FollowUser.Id.Value
             };
-            _walls.Add(WallMemoryRow);
+            _walls.Add(wallMemoryRow);
         }
 
         public List<Wall> GetAllByUser(User user)
