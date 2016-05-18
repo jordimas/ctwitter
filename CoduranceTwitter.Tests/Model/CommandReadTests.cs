@@ -23,7 +23,7 @@ namespace CoduranceTwitter.Tests.Model
             memoryUserRepository.Add(user);
 
             commandRead.Process(TEST_USER1);
-            var messages = commandRead.Output;
+            var messages = commandRead.Messages;
             Assert.AreEqual(0, messages.Count);
         }
 
@@ -40,7 +40,7 @@ namespace CoduranceTwitter.Tests.Model
             memoryMessageRepository.Add(message);
 
             commandRead.Process(TEST_USER1);
-            var messages = commandRead.Output;
+            var messages = commandRead.Messages;
             Assert.AreEqual(1, messages.Count);
             Assert.AreEqual(TEST_USER1, messages[0].Username.Username);
         }
@@ -61,7 +61,7 @@ namespace CoduranceTwitter.Tests.Model
             memoryMessageRepository.Add(message2);
 
             commandRead.Process(TEST_USER1);
-            var messages = commandRead.Output;
+            var messages = commandRead.Messages;
 
             Assert.AreEqual(messages[0].Text, TEST_TEXT2);
             Assert.AreEqual(messages[1].Text, TEST_TEXT1);

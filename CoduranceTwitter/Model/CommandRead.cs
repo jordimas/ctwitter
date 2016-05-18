@@ -11,7 +11,7 @@ namespace CoduranceTwitter
         private readonly IUserRepository _userRepository;
         private readonly string PATTERN = "(.*)";
         private const int USERNAME_GROUP = 1;
-        public List <Message> Output { get; private set; }
+        public List <Message> Messages { get; private set; }
 
         public CommandRead(IMessageRepository messageRepository, IUserRepository userRepository)
         {
@@ -33,7 +33,7 @@ namespace CoduranceTwitter
             var messages = _messageRepository.GetAllByUser(user);
             messages.Sort((x, y) => y.Timespan.CompareTo(x.Timespan));
             
-            Output = messages;
+            Messages = messages;
             return true;
         }
     }

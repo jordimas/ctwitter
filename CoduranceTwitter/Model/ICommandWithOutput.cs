@@ -1,10 +1,9 @@
-﻿using CoduranceTwitter.Model;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace CoduranceTwitter
+namespace CoduranceTwitter.Model
 {
     public interface ICommandWithOutput : ICommand
     {
-        List<Message> Output { get; }
+        List<Message> Messages { get; }
     }
 }

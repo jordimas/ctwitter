@@ -37,7 +37,7 @@ namespace CoduranceTwitter
                         ICommandWithOutput output = command as ICommandWithOutput;
                         if (output != null)
                         {
-                            var messagePrinter = new MessagePrinter(output.Output);
+                            var messagePrinter = new MessagePrinter(output.Messages);
                             foreach (var outline in messagePrinter.GetOutput())
                             {
                                 Console.WriteLine(outline);
