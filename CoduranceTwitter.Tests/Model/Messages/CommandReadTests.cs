@@ -1,10 +1,10 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CoduranceTwitter.DAL;
 using CoduranceTwitter.Model.Messages;
 using CoduranceTwitter.Model.Users;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CoduranceTwitter.Tests.Model
+namespace CoduranceTwitter.Tests.Model.Messages
 {
     [TestClass]
     public class CommandReadTests : BaseTest

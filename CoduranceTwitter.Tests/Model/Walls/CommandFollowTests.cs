@@ -1,10 +1,9 @@
 ﻿using CoduranceTwitter.DAL;
-using CoduranceTwitter.Model;
 using CoduranceTwitter.Model.Users;
 using CoduranceTwitter.Model.Walls;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CoduranceTwitter.Tests.Model
+namespace CoduranceTwitter.Tests.Model.Walls
 {
     [TestClass]
     public class CommandFollowTests : BaseTest
