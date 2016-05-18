@@ -66,7 +66,9 @@ namespace CoduranceTwitter.Tests.Model.Walls
 
             Assert.AreEqual(2, messages.Count);
             Assert.AreEqual(TEST_USER1, messages[0].User.Username);
+            Assert.AreEqual(TEST_TEXT1, messages[0].Text);
             Assert.AreEqual(TEST_USER2, messages[1].User.Username);
+            Assert.AreEqual(TEST_TEXT2, messages[1].Text);
         }
     }
 }
