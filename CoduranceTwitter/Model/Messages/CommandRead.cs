@@ -30,7 +30,7 @@ namespace CoduranceTwitter.Model.Messages
             User user = _userRepository.Get(username);
 
             var messages = _messageRepository.GetAllByUser(user);
-            messages.Sort((x, y) => y.Timespan.CompareTo(x.Timespan));
+            messages.Sort((x, y) => y.SentDate.CompareTo(x.SentDate));
             
             Messages = messages;
             return true;

@@ -6,7 +6,7 @@ namespace CoduranceTwitter.Model.Messages
     public class Message
     {
         public string Text { get; set; }
-        public DateTime Timespan { get; set; }
+        public DateTime SentDate { get; set; }
         public User User { get; set; }
     }
 }

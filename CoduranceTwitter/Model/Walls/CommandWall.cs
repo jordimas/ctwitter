@@ -52,7 +52,7 @@ namespace CoduranceTwitter.Model.Walls
                 messages.AddRange(subcriptionMessages);
             }
 
-            messages.Sort((x, y) => y.Timespan.CompareTo(x.Timespan));
+            messages.Sort((x, y) => y.SentDate.CompareTo(x.SentDate));
             return messages;
         }
     }

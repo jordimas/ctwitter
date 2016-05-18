@@ -55,8 +55,8 @@ namespace CoduranceTwitter.Tests.Model.Messages
 
             DateTime now = DateTime.Now;
             var user1 = new User(TEST_USER1);
-            var message1 = new Message() { Text = TEST_TEXT1, User = user1, Timespan = now};
-            var message2 = new Message() { Text = TEST_TEXT2, User = user1, Timespan = now.AddMinutes(1) };
+            var message1 = new Message() { Text = TEST_TEXT1, User = user1, SentDate = now};
+            var message2 = new Message() { Text = TEST_TEXT2, User = user1, SentDate = now.AddMinutes(1) };
             memoryUserRepository.Add(user1);
             memoryMessageRepository.Add(message1);
             memoryMessageRepository.Add(message2);

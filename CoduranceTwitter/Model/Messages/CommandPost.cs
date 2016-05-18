@@ -33,7 +33,7 @@ namespace CoduranceTwitter.Model.Messages
             {
                 User = GetOrCreateUser(username),
                 Text = text,
-                Timespan = DateTime.Now
+                SentDate = DateTime.Now
             };
 
             _messageRepository.Add(message);
@@ -48,7 +48,6 @@ namespace CoduranceTwitter.Model.Messages
             {
                 user = new User(username);
                 _userRepository.Add(user);
-                user = _userRepository.Get(username);
             }
 
             return user;

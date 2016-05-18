@@ -12,7 +12,7 @@ namespace CoduranceTwitter.DAL
             var messageMemoryDb = new MessageMemoryRow()
             {
                 Text = message.Text,
-                Timespan = message.Timespan,
+                Timespan = message.SentDate,
                 UserId = message.User.Id.Value,
             };
             _messages.Add(messageMemoryDb);
@@ -37,7 +37,7 @@ namespace CoduranceTwitter.DAL
         {
             return new Message()
             {
-                Timespan = memory.Timespan,
+                SentDate = memory.Timespan,
                 Text = memory.Text,
                 User = user
             };

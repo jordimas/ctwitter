@@ -29,7 +29,7 @@ namespace CoduranceTwitter.Model.Messages
 
             foreach (Message message in _messages)
             {
-                TimeSpan span = DateTime.Now - message.Timespan;
+                TimeSpan span = DateTime.Now - message.SentDate;
                 string time = RenderTime(span);
                 string msg = $"{message.User.Username} - {message.Text} ({time})";
                 output.Add(msg);

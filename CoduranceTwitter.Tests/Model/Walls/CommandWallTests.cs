@@ -25,7 +25,7 @@ namespace CoduranceTwitter.Tests.Model.Walls
             var user1 = new User(TEST_USER1);
             memoryUserRepository.Add(user1);
 
-            var message1 = new Message() { Text = TEST_TEXT1, User = user1, Timespan = DateTime.Now };
+            var message1 = new Message() { Text = TEST_TEXT1, User = user1, SentDate = DateTime.Now };
             memoryMessageRepository.Add(message1);
 
             string text = $"{TEST_USER1} wall";
@@ -50,10 +50,10 @@ namespace CoduranceTwitter.Tests.Model.Walls
             memoryUserRepository.Add(user2);
 
             DateTime now = DateTime.Now;
-            var message1 = new Message() { Text = TEST_TEXT1, User = user1, Timespan = now.AddMinutes(1)};
+            var message1 = new Message() { Text = TEST_TEXT1, User = user1, SentDate = now.AddMinutes(1)};
             memoryMessageRepository.Add(message1);
 
-            var message2 = new Message() { Text = TEST_TEXT2, User = user2, Timespan = now};
+            var message2 = new Message() { Text = TEST_TEXT2, User = user2, SentDate = now};
             memoryMessageRepository.Add(message2);
 
             var wall = new Wall { User =  user1, FollowUser = user2};
